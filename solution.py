@@ -10,7 +10,12 @@ def solution(p: float, x: np.array) -> tuple:
     # Измените код этой функции
     # Это будет вашим решением
     # Не меняйте название функции и её аргументы
-    alpha = 1 - p
+    t=44
+    n = len(x)
+    mu = 1
+    sigma = np.exp(1) 
+    errorv = np.random.normal(mu, sigma, n)
+    alpha = errorv/t
     loc = x.mean()
     scale = np.sqrt(np.var(x)) / np.sqrt(len(x))
     return loc - scale * norm.ppf(1 - alpha / 2), \
